@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleAuth } from "google-auth-library";
+import { logger } from "@/lib/axiom/server";
 
 function getAuth() {
   const creds = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON!);
@@ -56,10 +57,14 @@ export async function POST(req: NextRequest) {
     }
 
     const text = result.responses?.[0]?.fullTextAnnotation?.text || "";
-
+    logger.info("OCR completed", {
+      fileSize: file.size,
+      textLength: text.length,
+    });
     return NextResponse.json({ text });
   } catch (error: any) {
     console.error("FULL ERROR:", error);
+    logger.error("OCR failed", { error: error.message });
     return NextResponse.json(
       { error: "OCR failed", message: error?.message },
       { status: 500 },

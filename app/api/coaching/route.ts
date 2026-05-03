@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { EvoltScanResult } from "@/lib/parseEvolts";
-
+import { logger } from "@/lib/axiom/server";
 export async function POST(req: NextRequest) {
+  const start = Date.now();
   try {
     const body: EvoltScanResult = await req.json();
 
@@ -39,9 +40,16 @@ export async function POST(req: NextRequest) {
     if (data.error) throw new Error(data.error.message);
     const text = data.choices?.[0]?.message?.content ?? "";
     const insights = JSON.parse(text);
+    logger.info("Coaching insights generated", {
+      duration: Date.now() - start,
+      name: data.meta?.name,
+    });
     return NextResponse.json(insights);
   } catch (error: any) {
-    console.error("Coaching API error:", error);
+    logger.error("Coaching failed", {
+      error: error.message,
+      duration: Date.now() - start,
+    });
     return NextResponse.json(
       { error: "Failed to generate insights", message: error?.message },
       { status: 500 },

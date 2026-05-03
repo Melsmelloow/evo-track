@@ -7,6 +7,31 @@
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
+"@axiomhq/js@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@axiomhq/js/-/js-1.6.0.tgz#614a3530b58c6b842fa79271a918494ae3c09ed2"
+  integrity sha512-qm0ObduIpI6PJUOYwakH5WV3E7IF0qXE/wh5N1JWGAzxKtCZryk+YwA0aW3lPZSGPQeLHyEzN+9pXsOIjoPiRg==
+  dependencies:
+    fetch-retry "^6.0.0"
+
+"@axiomhq/logging@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@axiomhq/logging/-/logging-0.2.0.tgz#b136e325813f34287d50edec20d141a03d0b81aa"
+  integrity sha512-Ro3GxgBAZQvsbx6Yjor9f6yx2IC7Wvqy0FC7HGcOjdtswl0refGB+gtKs94XyxbfnIo6MbKjHhHHkZOubjE+pQ==
+
+"@axiomhq/nextjs@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@axiomhq/nextjs/-/nextjs-0.2.0.tgz#8ca94f2a398da3adc9a528fb170ebc9fadc79c93"
+  integrity sha512-c90TKJf+r7jbWKctBcDZqAqfA+XTwA1L2BORf8Ipa2dBFvOj9RkzetIp/d2FTrGWJ9rLHAyOpKEER7mg4nOXDQ==
+
+"@axiomhq/react@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@axiomhq/react/-/react-0.2.0.tgz#2a86150d947cc20d293c3538ab855953d6b39529"
+  integrity sha512-PrvX/y7UEJp/WTcKQqSk1CoZVJeo1tGVnE6ekTZ5JRlv7E9pmewlig3Saxs4g9Bd/I9jMGQvEjy61J6x/QOMSg==
+  dependencies:
+    use-deep-compare "^1.3.0"
+    web-vitals "^4.2.4"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.28.6", "@babel/code-frame@^7.29.0":
   version "7.29.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.29.0.tgz#7cd7a59f15b3cc0dcd803038f7792712a7d0b15c"
@@ -1740,6 +1765,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
+"@types/ms@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/ms/-/ms-2.1.0.tgz#052aa67a48eccc4309d7f0191b7e41434b90bb78"
+  integrity sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==
+
 "@types/node@*", "@types/node@>=13.7.0":
   version "25.6.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-25.6.0.tgz#4e09bad9b469871f2d0f68140198cbd714f4edca"
@@ -1975,6 +2005,21 @@
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@unrs/resolver-binding-win32-x64-msvc/-/resolver-binding-win32-x64-msvc-1.11.1.tgz#538b1e103bf8d9864e7b85cc96fa8d6fb6c40777"
   integrity sha512-lrW200hZdbfRtztbygyaq/6jP6AKE8qQN2KvPcJ+x7wiD038YtnYtZ82IMNJ69GJibV7bwL3y9FgK+5w/pYt6g==
+
+"@vercel/functions@^2.2.13":
+  version "2.2.13"
+  resolved "https://registry.yarnpkg.com/@vercel/functions/-/functions-2.2.13.tgz#8b290efb46967cd5e02b366a62176987a765fad5"
+  integrity sha512-14ArBSIIcOBx9nrEgaJb4Bw+en1gl6eSoJWh8qjifLl5G3E4dRXCFOT8HP+w66vb9Wqyd1lAQBrmRhRwOj9X9A==
+  dependencies:
+    "@vercel/oidc" "2.0.2"
+
+"@vercel/oidc@2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vercel/oidc/-/oidc-2.0.2.tgz#ca96b3dd690fd6d6f835b6638a9c9d836ed2e228"
+  integrity sha512-59PBFx3T+k5hLTEWa3ggiMpGRz1OVvl9eN8SUai+A43IsqiOuAe7qPBf+cray/Fj6mkgnxm/D7IAtjc8zSHi7g==
+  dependencies:
+    "@types/ms" "2.1.0"
+    ms "2.1.3"
 
 accepts@^2.0.0:
   version "2.0.0"
@@ -2584,6 +2629,11 @@ depd@^2.0.0, depd@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
+
+dequal@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
+  integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
 detect-libc@^2.0.3, detect-libc@^2.1.2:
   version "2.1.2"
@@ -3252,6 +3302,11 @@ fetch-blob@^3.1.2, fetch-blob@^3.1.4:
   dependencies:
     node-domexception "^1.0.0"
     web-streams-polyfill "^3.0.3"
+
+fetch-retry@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/fetch-retry/-/fetch-retry-6.0.0.tgz#4ffdf92c834d72ae819e42a4ee2a63f1e9454426"
+  integrity sha512-BUFj1aMubgib37I3v4q78fYo63Po7t4HUPTpQ6/QE6yK6cIQrP+W43FYToeTEyg5m2Y7eFUtijUuAv/PDlWuag==
 
 figures@^6.1.0:
   version "6.1.0"
@@ -4413,7 +4468,7 @@ minimist@^1.2.0, minimist@^1.2.6:
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.1.3.tgz#79389b4eb1bb2d003a9bba87d492f2bd37bdc65b"
   integrity sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==
 
-ms@^2.1.1, ms@^2.1.3:
+ms@2.1.3, ms@^2.1.1, ms@^2.1.3:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
@@ -4466,6 +4521,15 @@ negotiator@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-1.0.0.tgz#b6c91bb47172d69f93cfd7c357bbb529019b5f6a"
   integrity sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==
+
+next-axiom@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/next-axiom/-/next-axiom-1.10.0.tgz#6ee40540869057f79e7d5a287ca5317712f494dd"
+  integrity sha512-PpwmfOqoa2xWKcGmYb3d5t3R4+/J8C2D00IhJsI3Qk0xxv9tNvGzS/hKKOPNOuUwqM4b/etqu6iGW7tkKvltgA==
+  dependencies:
+    "@vercel/functions" "^2.2.13"
+    use-deep-compare "^1.3.0"
+    whatwg-fetch "^3.6.20"
 
 next@16.2.4:
   version "16.2.4"
@@ -5953,6 +6017,13 @@ use-callback-ref@^1.3.3:
   dependencies:
     tslib "^2.0.0"
 
+use-deep-compare@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/use-deep-compare/-/use-deep-compare-1.3.0.tgz#b36d304072d306e6bf27ca5653f3277dd66d2c0d"
+  integrity sha512-94iG+dEdEP/Sl3WWde+w9StIunlV8Dgj+vkt5wTwMoFQLaijiEZSXXy8KtcStpmEDtIptRJiNeD4ACTtVvnIKA==
+  dependencies:
+    dequal "2.0.3"
+
 use-sidecar@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/use-sidecar/-/use-sidecar-1.1.3.tgz#10e7fd897d130b896e2c546c63a5e8233d00efdb"
@@ -5985,6 +6056,16 @@ web-streams-polyfill@^3.0.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/web-streams-polyfill/-/web-streams-polyfill-3.3.3.tgz#2073b91a2fdb1fbfbd401e7de0ac9f8214cecb4b"
   integrity sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==
+
+web-vitals@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-4.2.4.tgz#1d20bc8590a37769bd0902b289550936069184b7"
+  integrity sha512-r4DIlprAGwJ7YM11VZp4R884m0Vmgr6EAKe3P+kO0PPj3Unqyvv59rczf6UiGcb9Z8QxZVcqKNwv/g0WNdWwsw==
+
+whatwg-fetch@^3.6.20:
+  version "3.6.20"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.6.20.tgz#580ce6d791facec91d37c72890995a0b48d31c70"
+  integrity sha512-EqhiFU6daOA8kpjOWTL0olhVOF3i7OrFzSYiGsEMB8GcXS+RrzauAERX65xMeNWVqxA6HXH2m69Z9LaKKdisfg==
 
 which-boxed-primitive@^1.1.0, which-boxed-primitive@^1.1.1:
   version "1.1.1"
