@@ -12,6 +12,7 @@ import {
   parseEvoltText,
 } from "@/lib/parseEvolts";
 import { EvoltResultCard } from "./EvoltResultCard";
+import { preprocessImage } from "@/lib/preprocessImage";
 
 type FileWithPreview = {
   file: File;
@@ -44,7 +45,11 @@ function UploadForm() {
       const parsed = await Promise.all(
         files.map(async (item) => {
           const formData = new FormData();
-          formData.append("file", item.file);
+
+          // Preprocess before sending
+          const processed = await preprocessImage(item.file);
+          formData.append("file", processed, item.file.name);
+
           const res = await fetch("/api/ocr", {
             method: "POST",
             body: formData,
