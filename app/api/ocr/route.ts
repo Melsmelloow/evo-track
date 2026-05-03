@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
             },
           ],
         }),
-      }
+      },
     );
 
     const result = await response.json();
@@ -55,15 +55,14 @@ export async function POST(req: NextRequest) {
       throw new Error(result.error.message);
     }
 
-    const text =
-      result.responses?.[0]?.fullTextAnnotation?.text || "";
+    const text = result.responses?.[0]?.fullTextAnnotation?.text || "";
 
     return NextResponse.json({ text });
   } catch (error: any) {
     console.error("FULL ERROR:", error);
     return NextResponse.json(
       { error: "OCR failed", message: error?.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
