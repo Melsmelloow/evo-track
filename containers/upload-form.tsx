@@ -37,35 +37,46 @@ function UploadForm() {
   };
 
   // 🔥 OCR MULTI FILE
-  const handleOCR = async () => {
-    if (!files.length) return;
-    setLoading(true);
+const handleOCR = async () => {
+  if (!files.length) return;
+  setLoading(true);
 
-    try {
-      const parsed = await Promise.all(
-        files.map(async (item) => {
-          const formData = new FormData();
+  try {
+    const parsed = await Promise.all(
+      files.map(async (item) => {
+        console.log("Processing:", item.file.name, `${(item.file.size / 1024).toFixed(0)}KB`, item.file.type);
 
-          // Preprocess before sending
+        const formData = new FormData();
+
+        try {
           const processed = await preprocessImage(item.file);
+          console.log("Preprocessed blob:", `${(processed.size / 1024).toFixed(0)}KB`);
           formData.append("file", processed, item.file.name);
+        } catch (prepErr) {
+          console.warn("Preprocess failed, using raw file:", prepErr);
+          formData.append("file", item.file);
+        }
 
-          const res = await fetch("/api/ocr", {
-            method: "POST",
-            body: formData,
-          });
-          const data = await res.json();
-          return parseEvoltText(data.text);
-        }),
-      );
-      console.table(parsed);
-      setResult(mergeEvoltResults(parsed));
-    } catch (err) {
-      console.error("Upload OCR Error:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+        const res = await fetch("/api/ocr", { method: "POST", body: formData });
+
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.message ?? `OCR request failed: ${res.status}`);
+        }
+
+        const data = await res.json();
+        console.log("OCR text length:", data.text?.length ?? 0);
+        return parseEvoltText(data.text);
+      }),
+    );
+
+    setResult(mergeEvoltResults(parsed));
+  } catch (err: any) {
+    console.error("Upload OCR Error:", err?.message ?? err);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#0B0F0C] p-6">
