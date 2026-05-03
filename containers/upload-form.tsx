@@ -85,6 +85,8 @@ function UploadForm() {
             <Input
               type="file"
               multiple
+              accept="image/*"
+              capture={false as any}
               className="hidden"
               onChange={handleFileChange}
             />
