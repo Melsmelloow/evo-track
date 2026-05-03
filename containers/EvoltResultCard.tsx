@@ -110,26 +110,31 @@ export function EvoltResultCard({ data }: { data: EvoltScanResult }) {
   return (
     <div className="bg-[#111714] border border-[#1F2A24] rounded-2xl p-5 space-y-5">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="space-y-3">
+        {/* Avatar + Name + Date */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#C6FF0022] flex items-center justify-center text-[#C6FF00] font-medium text-sm">
+          <div className="w-10 h-10 rounded-full bg-[#C6FF0022] flex items-center justify-center text-[#C6FF00] font-medium text-sm shrink-0">
             {initials}
           </div>
           <div>
-            <p className="text-white font-medium">{meta.name ?? "Unknown"}</p>
+            <p className="text-white font-medium leading-tight">
+              {meta.name ?? "Unknown"}
+            </p>
             <p className="text-gray-400 text-xs">{meta.date}</p>
           </div>
         </div>
-        <div className="flex items-center gap-1 bg-[#0B0F0C] rounded-lg p-1">
+
+        {/* Toggle */}
+        <div className="flex items-center gap-1 bg-[#0B0F0C] rounded-lg p-1 w-fit">
           <button
             onClick={() => setSimple(true)}
-            className={`text-xs px-3 py-1.5 rounded-md transition-colors ${simple ? "bg-[#C6FF00] text-black font-medium" : "text-gray-400 hover:text-white"}`}
+            className={`text-xs px-4 py-1.5 rounded-md transition-colors ${simple ? "bg-[#C6FF00] text-black font-medium" : "text-gray-400 hover:text-white"}`}
           >
             Simple
           </button>
           <button
             onClick={() => setSimple(false)}
-            className={`text-xs px-3 py-1.5 rounded-md transition-colors ${!simple ? "bg-[#C6FF00] text-black font-medium" : "text-gray-400 hover:text-white"}`}
+            className={`text-xs px-4 py-1.5 rounded-md transition-colors ${!simple ? "bg-[#C6FF00] text-black font-medium" : "text-gray-400 hover:text-white"}`}
           >
             Detailed
           </button>
@@ -291,12 +296,16 @@ export function EvoltResultCard({ data }: { data: EvoltScanResult }) {
             </div>
 
             {/* Macro Insight */}
-{insights.macroInsight && (
-  <div className="bg-[#0B0F0C] rounded-xl p-4 border border-[#1F2A24]">
-    <p className="text-[#C6FF00] text-xs font-medium mb-2">Macro breakdown</p>
-    <p className="text-gray-300 text-xs leading-relaxed">{insights.macroInsight}</p>
-  </div>
-)}
+            {insights.macroInsight && (
+              <div className="bg-[#0B0F0C] rounded-xl p-4 border border-[#1F2A24]">
+                <p className="text-[#C6FF00] text-xs font-medium mb-2">
+                  Macro breakdown
+                </p>
+                <p className="text-gray-300 text-xs leading-relaxed">
+                  {insights.macroInsight}
+                </p>
+              </div>
+            )}
 
             {/* Recommendations */}
             <div className="space-y-2">
